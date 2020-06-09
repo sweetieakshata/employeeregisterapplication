@@ -1,0 +1,60 @@
+ <p-confirmDialog [style]="{ width: '50vw' }"></p-confirmDialog>
+<div class="row">
+    <div class="col-md-12 ">
+      <div class="col-xs-12 ">
+  <p-accordion >
+    <p-accordionTab header="Employeee Information">
+  <p-table [value]="employeedetails" [responsive]="true" [paginator]="true" [rows]="10" [columns]="cols">
+    <ng-template pTemplate="header" >
+      <tr>
+        <th class="tabledHeader">First Name</th>
+        <th class="tabledHeader">Last name</th>
+        <th class="tabledHeader"> User Name</th>
+         <th class="tabledHeader"></th>
+        <th class="tabledHeader">Date Of Birth</th>
+        <th class="tabledHeader">Date Of Joining</th>
+        <th class="tabledHeader"> Designation</th>
+        <th class="tabledHeader"> Email Id</th>
+        <th class="tabledHeader"></th>
+        <th class="tabledHeader"> Mobile No</th>
+        <th class="tabledHeader"> Address</th>
+        <th class="tabledHeader"></th>
+        <th class="tabledHeader"></th>
+        <th class="tabledHeader"></th>
+        <th class="tabledHeader"></th>
+        <th class="tabledHeader"></th>
+        <th class="tabledHeader"></th>
+  
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-employee let i="index">
+      <tr >
+          <td class="tdLines">{{employee.name}}</td>
+          <td  class="tdLines">{{employee.LastName}}</td>
+          <td  class="tdLines">{{employee.Username}}</td>
+          <td  class="tdLines"></td>
+          <td  class="tdLines">{{employee.DOB}}</td>
+          <td  class="tdLines">{{employee.DOJ}}</td>
+          <td  class="tdLines">{{employee.Designation}}</td>
+          <td  class="tdLines">{{employee.Email_ID}}</td>
+          <td  class="tdLines"></td>
+          <td  class="tdLines">{{employee.Mobile_No}}</td>
+          <td  class="tdLines">{{employee.Address}}</td>
+          <td  class="tdLines"> </td>
+          <td  class="tdLines"> </td>
+          <td  class="tdLines text-center" >
+            <a class="fa fa-trash" aria-hidden="true" (click)="confirmDelete(employee,i)"></a>
+          </td>
+          
+          </tr>
+  </ng-template>
+  </p-table>
+  </p-accordionTab>
+  </p-accordion>
+  </div>
+  </div>
+  </div>
+
+  
+
+

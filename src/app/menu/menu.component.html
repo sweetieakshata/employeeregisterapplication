@@ -1,0 +1,140 @@
+
+<p-growl [(value)]="msgs"></p-growl>
+<nav class="navbar navbar-expand-lg navbar-light bg-info">
+  <a class="navbar-brand"><h3>Employee Information</h3></a>
+
+ 
+ 
+
+    <ul class="navbar-nav">
+
+       <li class="nav-item">
+       <a class="nav-link" [routerLink]="['/home']" routerLinkActive="router-link-active">
+        <i class="fa fa-home " aria-hidden="true"></i>
+      <span>Home</span>
+
+      </a>
+      </li>
+
+      <li class="nav-item">
+       <a class="nav-link" [routerLink]="['']" routerLinkActive="router-link-active">
+        <i class="fa fa-home " aria-hidden="true"></i>
+      <span>WelCome to our page</span>
+
+      </a>
+      </li>
+
+
+      <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/emp']" routerLinkActive="router-link-active">
+            <!-- <i class="fa fa-university" aria-hidden="true"></i> -->
+            <span>Employee Data</span>
+          </a>
+        </li>
+
+        <li class="nav-item active">
+          <a class="nav-link" [routerLink]="['/abt']" routerLinkActive="router-link-active" >
+            <i class="fa fa-trophy " aria-hidden="true"></i>&nbsp;
+            <span>About us</span>
+          </a>
+        </li>
+
+        <li class="nav-item active">
+            <a class="nav-link"  routerLinkActive="router-link-active" (click)="showModalDialog()" >
+            <span>Registration</span>
+            </a>
+          </li>
+
+
+
+<li class="nav-item" *ngIf="!isLoggedIn()" routerLinkActive="router-link-active">
+    <a class="nav-link" [routerLink]="['/log']">
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+      <span>Login</span>
+      <span class="sr-only">(current)</span>
+    </a>
+    </li>
+
+    
+
+    <li class="nav-item" *ngIf="isLoggedIn()" routerLinkActive="router-link-active">
+    <a class="nav-link" (click)="onLogOut()" >
+        <i class="fa fa-unlock" aria-hidden="true"></i>
+      <span>Log Out</span>
+      <span class="sr-only">(current)</span>
+    </a>
+    </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#"></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#"></a>
+      </li>
+
+    </ul>
+
+</nav>
+
+
+<p-dialog id="Seatchtask" [(visible)]="displayModal" [modal]="true" [responsive]="true" [style]="{width: '50vw'}"
+    [minY]="40" [baseZIndex]="1000" [positionTop]="10" [draggable]="false" [closable]="false" [blockScroll]='true'>
+    <p-header>
+        <div class="head">
+            <a class="btn btn-danger pull-right" (click)="closeRegmodal()"
+                style="width: 60px; background: red;color: white;">close</a>
+            <h5 style="text-transform: none; text-align: center; font-weight: 1000;">Employee Registration Form</h5>
+        </div>
+    </p-header>
+    <div class="modal-body">
+        <form [formGroup]="registrationForm">
+            <div class="row ibox-content">
+                <div class="col-sm-10">
+                    <label>First Name</label>
+                    <input type="text" id="txtEpiSodeMemberName" class="form-control textbox-search-onenterkey"
+                        placeholder="Enter Your FirstName" formControlName="FirstName">
+                         <label
+                        *ngIf="registrationForm.get('FirstName').hasError('required') && !registrationForm.get('FirstName').pristine"
+                        class="text"><span style="color:red">FirstName is required</span></label>
+                </div>
+                <br>
+                <div class="col-sm-10">
+                    <label>Last Name</label>
+                    <input type="text" id="txtEpiSodeMemberName" class="form-control textbox-search-onenterkey"
+                        placeholder="Enter Your LastName" formControlName="LastName">
+                         <label *ngIf="registrationForm.get('LastName').hasError('required') && !registrationForm.get('LastName').pristine"
+                        class="text"><span style="color:red">LastName is required</span></label>
+                </div>
+                <br>
+
+                <div class="col-sm-10">
+                    <label>User Name</label>
+                    <input type="text" id="txtEpiSodeMemberName" class="form-control textbox-search-onenterkey"
+                        placeholder="Enter Your UserName" formControlName="UserName">
+                        <label *ngIf="registrationForm.get('UserName').hasError('required') && !registrationForm.get('UserName').pristine"
+                        class="text"><span style="color:red">UserName is required</span></label>
+                    
+                </div>
+                <br>
+
+                <div class="col-sm-10">
+                    <label>PassWord</label>
+                    <input type="text" id="txtEpiSodeMemberName" class="form-control textbox-search-onenterkey"
+                        placeholder="Enter Your PassWord" formControlName="PassWord">
+                    <label *ngIf="registrationForm.get('PassWord').hasError('required') && !registrationForm.get('PassWord').pristine"
+                        class="text"><span style="color:red">PassWord is required</span></label>
+                </div>
+               
+            </div>
+            <br>
+           
+          
+        </form>
+    </div>
+
+    <p-footer>
+        <div class="modal-footer">
+            <a data-dismiss="modal" class="btn btn-small btn-primary pull-right" (click)="saveRegister()">SignIn</a>
+        </div>
+    </p-footer>
+</p-dialog>

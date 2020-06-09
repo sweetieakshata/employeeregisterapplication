@@ -1,0 +1,43 @@
+<div class="image"></div>
+<div class="log" width=80px;>
+
+  <div class="con">
+  <div class="container">
+
+    
+        <div class="head">
+           
+                <a class="fa fa-times pull-right" aria-hidden="true"></a>
+            <h6 style="text-transform: none; text-align: center; font-weight: 1000;">Employee LogIn Form</h6>
+        </div>
+    
+   
+  <form (ngSubmit)="onLoginSubmit(f)" #f="ngForm" >
+  
+        <div class="form-group" >
+
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+       <input name="user_email" required email ngModel #user_email="ngModel"  type="text" class="form-control" placeholder="Enter Email address" >
+        <label class="alert alert-danger" *ngIf="user_email.hasError('required') && !user_email.pristine"  >Email is required.</label>
+        <label class="alert alert-danger" *ngIf="user_email.hasError('email') && !user_email.pristine"  >Email is invalid.</label>
+      </div>
+
+
+      <div class="form-group" >
+       
+
+         <input  minlength="3" required name="user_password" #user_password="ngModel" ngModel type="password" class="form-control" placeholder="Enter password ">
+        <label class="alert alert-danger" *ngIf="user_password.hasError('required') && !user_password.pristine"  >Password is required.</label>
+        <label class="alert alert-danger" *ngIf="user_password.hasError('minlength')">Min 3 Charecters is required!</label>
+      </div>
+
+
+      <div class="form-group">
+        <button [disabled]="!f.valid" required type="submit" class="form-control btn btn-danger" >Login</button>
+
+      </div>
+    </form>
+  </div>
+  </div>
+</div>
+

@@ -1,0 +1,29 @@
+.image{
+
+  background: url(https://www.awardstaffing.com/wp-content/uploads/2018/11/How-to-Improve-Employee-Employer-Communication-1030x687.jpg) center center no-repeat;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: block;
+  background-size: cover;
+  background-position: 50% 40%;
+  opacity: 6;
+  z-index: -1;
+}
+
+#header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.clock {
+  font-size: 5rem;
+}
+
+
+
+
+
+	
+
+
